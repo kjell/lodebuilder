@@ -20,9 +20,14 @@ function draw(options) {
     lw = ctx.lineWidth * 1;
 
     var loops = options.static ? 1 : size;
+    var strokeColors = ['#0098C7', '#F78222', '#D81821', '#FEC34F', '#0A9775']
+    var colorIndex = 0
 
     for (var x = 0; x < loops; x++) {
         ctx.fillRect(0, 0, size, size);
+        if(x % 2 == 0) {
+          ctx.strokeStyle = strokeColors[colorIndex++%strokeColors.length]
+        }
 
         ctx.beginPath();
         ctx.lineTo(x + size - lw, -lw);
